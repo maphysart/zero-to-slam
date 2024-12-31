@@ -1,3 +1,5 @@
+This repo is forked from https://github.com/Caian/zero-to-slam 
+
 # zero-to-slam
 
 Containerized ROS2 SLAM and navigation inside Omniverse Isaac Sim
