@@ -10,6 +10,7 @@ else
 fi
 
 docker run --rm -ti \
+    --gpus all \
     --user $(id -u):$(id -g) \
     --network host \
     --ipc host \
@@ -17,7 +18,6 @@ docker run --rm -ti \
     -e DISPLAY \
     --volume $PWD:/workspace:z \
     --volume /tmp/.X11-unix:/tmp/.X11-unix:z \
-    --device /dev/dri \
     --device /dev/input \
     --security-opt=label=type:container_runtime_t \
     $IMAGE \
