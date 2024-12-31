@@ -1,16 +1,16 @@
 # Runs a command inside the ROS2 container
 
-IMAGE=zero-to-slam-image:latest
-DOCKER_IMAGE=docker.io/bcaian/zero-to-slam:latest
+IMAGE=zero-to-slam:2nd
 
-if podman image exists $DOCKER_IMAGE
-then
-    >&2 echo "Using docker registry image!"
-    IMAGE=$DOCKER_IMAGE
+if docker image inspect "$IMAGE" > /dev/null 2>&1; then
+    >&2 echo "Using local Docker image!"
+else
+    echo "local image does not exist"
+    exit 1
 fi
 
-podman run --rm -ti \
-    --userns=keep-id \
+docker run --rm -ti \
+    --user $(id -u):$(id -g) \
     --network host \
     --ipc host \
     -e HOME=/workspace \

@@ -1,1 +1,1 @@
-podman build -t zero-to-slam-image:latest $PWD
+docker build -t zero-to-slam:1st -f Dockerfile.1st

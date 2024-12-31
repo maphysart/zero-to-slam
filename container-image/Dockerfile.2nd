@@ -1,0 +1,11 @@
+FROM zero-to-slam:1st
+
+# Or Create user and group inside the image
+ARG USER_ID
+ARG GROUP_ID
+ARG USER_NAME
+
+RUN groupadd --gid "$GROUP_ID" "$USER_NAME" && \
+    useradd --uid "$USER_ID" --gid "$GROUP_ID" -ms /bin/bash "$USER_NAME"
+
+USER "$USER_NAME"
