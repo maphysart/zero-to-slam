@@ -1,0 +1,1 @@
+docker buildx build --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) --build-arg USER_NAME=$(whoami) --build-arg INPUT_GID=$(stat -c '%g' /dev/input/js0) -t zero-to-slam:3rd -f Dockerfile.3rd .
