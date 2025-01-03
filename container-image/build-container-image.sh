@@ -1,1 +1,1 @@
-docker build -t zero-to-slam:1st -f Dockerfile.1st
+docker buildx build --build-arg USER_NAME=$(whoami) --build-arg INPUT_GID=$(stat -c '%g' /dev/input/js0) -t zero-to-slam:latest -f Dockerfile .
